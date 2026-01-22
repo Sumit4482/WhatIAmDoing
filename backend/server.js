@@ -4,6 +4,7 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 const Database = require('better-sqlite3');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const server = http.createServer(app);
@@ -61,6 +62,14 @@ app.get('/health', (req, res) => {
 
 // Initialize SQLite Database
 const dbPath = process.env.DATABASE_PATH || path.join(__dirname, 'dashboard.db');
+const dbDir = path.dirname(dbPath);
+
+// Ensure database directory exists
+if (!fs.existsSync(dbDir)) {
+  fs.mkdirSync(dbDir, { recursive: true });
+  console.log(`📁 Created database directory: ${dbDir}`);
+}
+
 const db = new Database(dbPath);
 
 // Create tables
