@@ -1,0 +1,21 @@
+{
+  "name": "sumit-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal accountability dashboard - Web & Mobile",
+  "workspaces": [
+    "web",
+    "mobile",
+    "shared"
+  ],
+  "scripts": {
+    "web": "npm run dev --workspace=web",
+    "web:build": "npm run build --workspace=web",
+    "mobile": "npm run start --workspace=mobile",
+    "mobile:ios": "npm run ios --workspace=mobile",
+    "mobile:android": "npm run android --workspace=mobile",
+    "dev": "npm run web"
+  },
+  "author": "Sumit",
+  "license": "MIT"
+}

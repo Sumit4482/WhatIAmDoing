@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* "Playful Pastel" Design System */
+
+@layer base {
+  :root {
+    /* Soft pastel background */
+    --background: 30 50% 98%;
+    --foreground: 260 30% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 30% 20%;
+
+    --primary: 280 60% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 80% 85%;
+    --secondary-foreground: 260 30% 20%;
+
+    --muted: 30 30% 93%;
+    --muted-foreground: 260 20% 45%;
+
+    --accent: 340 70% 75%;
+    --accent-foreground: 260 30% 20%;
+
+    --destructive: 0 65% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 20% 88%;
+    --input: 260 20% 88%;
+    --ring: 280 60% 65%;
+
+    --radius: 1.25rem;
+
+    /* Pastel Status Colors */
+    --status-active: 145 60% 55%;
+    --status-miss: 0 70% 70%;
+    --status-idle: 45 90% 65%;
+    --status-focus: 200 80% 60%;
+    --status-neutral: 260 15% 70%;
+
+    /* Fun pastels */
+    --pastel-purple: 280 60% 80%;
+    --pastel-pink: 340 70% 82%;
+    --pastel-blue: 200 80% 82%;
+    --pastel-green: 145 55% 75%;
+    --pastel-yellow: 45 90% 80%;
+    --pastel-orange: 25 90% 78%;
+    --pastel-coral: 15 85% 80%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 260 30% 20%;
+    --sidebar-primary: 280 60% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 70% 75%;
+    --sidebar-accent-foreground: 260 30% 20%;
+    --sidebar-border: 260 20% 88%;
+    --sidebar-ring: 280 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply h-full overflow-hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, 
+      hsl(30 50% 98%) 0%, 
+      hsl(280 40% 96%) 50%, 
+      hsl(200 50% 96%) 100%
+    );
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism Pastel Cards - Transparent */
+  .card-glass {
+    background: hsl(0 0% 100% / 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.8);
+  }
+
+  .card-purple {
+    background: hsl(280 60% 95% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(280 50% 85% / 0.6);
+  }
+
+  .card-pink {
+    background: hsl(340 70% 95% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(340 60% 85% / 0.6);
+  }
+
+  .card-blue {
+    background: hsl(200 80% 95% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(200 70% 85% / 0.6);
+  }
+
+  .card-green {
+    background: hsl(145 55% 93% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(145 50% 80% / 0.6);
+  }
+
+  .card-yellow {
+    background: hsl(45 90% 93% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(45 80% 80% / 0.6);
+  }
+
+  .card-orange {
+    background: hsl(25 90% 95% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(25 80% 82% / 0.6);
+  }
+
+  .card-coral {
+    background: hsl(15 85% 95% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(15 75% 82% / 0.6);
+  }
+
+  .card-white {
+    background: hsl(0 0% 100% / 0.65);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.8);
+  }
+
+  .card-cyan {
+    background: hsl(180 70% 93% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(180 60% 80% / 0.6);
+  }
+
+  /* Soft shadows for glass */
+  .shadow-pastel {
+    box-shadow: 0 4px 24px -4px hsl(280 40% 70% / 0.15),
+                0 2px 8px -2px hsl(260 30% 60% / 0.08);
+  }
+
+  .shadow-pastel-lg {
+    box-shadow: 0 8px 32px -8px hsl(280 40% 70% / 0.2),
+                0 4px 16px -4px hsl(260 30% 60% / 0.1);
+  }
+
+  /* Blob decorations */
+  .blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: blob-morph 8s ease-in-out infinite;
+  }
+
+  @keyframes blob-morph {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  }
+
+  /* Wiggle animation */
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  .animate-wiggle {
+    animation: wiggle 2s ease-in-out infinite;
+  }
+
+  /* Float animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Bounce subtle */
+  @keyframes bounce-fun {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.02); }
+  }
+
+  .animate-bounce-fun {
+    animation: bounce-fun 2s ease-in-out infinite;
+  }
+
+  /* Spin slow */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  /* Gradient text */
+  .gradient-text-fun {
+    background: linear-gradient(135deg, hsl(280 60% 55%), hsl(340 70% 60%), hsl(25 90% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
