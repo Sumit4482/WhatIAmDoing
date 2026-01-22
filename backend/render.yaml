@@ -3,7 +3,7 @@ services:
     name: sumit-dashboard-backend
     env: node
     plan: free
-    buildCommand: npm install --build-from-source
+    buildCommand: npm install
     startCommand: npm start
     nodeVersion: 18
     envVars:
